@@ -13,23 +13,23 @@ const navLinks = [
   },
   {
     title: "Projects",
-    path: "#projects",
+    path: "/projects",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/contact",
   },
   {
     title: "About",
-    path: "#about",
+    path: "/about",
   },
   {
     title: "Blog",
-    path: "#contact",
+    path: "/blogs",
   },
   {
     title: "Dashboard",
-    path: "#contact",
+    path: "/dashboard",
   },
 ];
 
