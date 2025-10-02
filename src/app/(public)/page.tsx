@@ -11,7 +11,6 @@ import BlogCard from "@/components/modules/Blogs/BlogCard";
 export default async function Home() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`)
   const { data: blogs } = await res.json()
-  console.log(blogs);
   return (
     <main className="flex min-h-screen flex-col bg-[#121212] ">
 

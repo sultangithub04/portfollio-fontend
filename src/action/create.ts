@@ -6,6 +6,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export const create = async (data: FormData) => {
+
   const session = await getUserSession()
   const blogInfo = Object.fromEntries(data.entries());
   const modifiedData = {
@@ -14,11 +15,10 @@ export const create = async (data: FormData) => {
       .toString()
       .split(",")
       .map((tag) => tag.trim()),
-    authorId: session?.user.id,
+    authorId: 1,
     isFeatured: Boolean(blogInfo.isFeatured),
   };
-
-
+console.log(modifiedData);
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`, {
     method: "POST",
     headers: {
@@ -29,10 +29,11 @@ export const create = async (data: FormData) => {
 
   const result = await res.json();
 
-  if (result?.id) {
+console.log(result);
+  if (result?.data?.id) {
     revalidateTag("BLOGS");
     revalidatePath("/blogs");
-    redirect("/");
+    redirect("/blogs");
   }
   return result;
 };
