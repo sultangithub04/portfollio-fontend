@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
@@ -10,7 +11,7 @@ const skills = {
   Tools: ["Firebase", "JWT Authentication", "Axios", "Redux", "AWS"],
 };
 
-const TAB_DATA = [
+const TAB_DATA:any[] = [
   {
     title: "Skills",
     id: "skills",
@@ -59,7 +60,9 @@ const TAB_DATA = [
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
-
+if(isPending){
+  console.log("test");
+}
   const handleTabChange = (id: React.SetStateAction<string>) => {
     startTransition(() => {
       setTab(id);
@@ -83,8 +86,8 @@ const AboutSection = () => {
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
-              {""}
-              Skills{""}
+              {" "}
+              Skills{" "}
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("education")}
@@ -97,8 +100,8 @@ const AboutSection = () => {
               selectTab={() => handleTabChange("certifications")}
               active={tab === "certifications"}
             >
-              {""}
-              Certifications{""}
+              {" "}
+              Certifications{" "}
             </TabButton>
           </div>
           <div className="mt-8">

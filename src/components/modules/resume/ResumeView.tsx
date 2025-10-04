@@ -24,7 +24,7 @@ export default function ResumeView({ data }: ResumeProps) {
       jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
     };
 
-    html2pdf().from(element).set(opt).save();
+    html2pdf().from(element).set(opt as any).save();
   };
 
   return (

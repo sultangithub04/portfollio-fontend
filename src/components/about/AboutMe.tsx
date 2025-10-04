@@ -6,6 +6,7 @@ import TabButton from "@/components/shared/TabButton";
 
 
 
+
 const skills = {
     Frontend: ["HTML & CSS", "JavaScript", "TypeScript", "Tailwind CSS", "React.js", "Next.js"],
     Backend: ["Node.js", "Express.js", "Prisma", "GraphQL", "Docker"],
@@ -13,7 +14,7 @@ const skills = {
     Tools: ["Firebase", "JWT Authentication", "Axios", "Redux", "AWS"],
 };
 
-const TAB_DATA = [
+const TAB_DATA:any = [
     {
         title: "Skills",
         id: "skills",
@@ -70,10 +71,13 @@ const TAB_DATA = [
 //         skills: ["JavaScript", "TypeScript", "React", "Next.js", "Node.js", "Prisma", "PostgreSQL", "MongoDB"],
 //     };
 // }
-const AboutSection = ({data}) => {
+const AboutSection = ({data}:any) => {
 
     const [tab, setTab] = useState("skills");
     const [isPending, startTransition] = useTransition();
+    if(isPending){
+        console.log("error");
+    }
 
     const handleTabChange = (id: React.SetStateAction<string>) => {
         startTransition(() => {
@@ -117,7 +121,7 @@ const AboutSection = ({data}) => {
                         </TabButton>
                     </div>
                     <div className="mt-8">
-                        {TAB_DATA.find((t) => t.id === tab).content}
+                        {TAB_DATA.find((t: { id: string; }) => t.id === tab).content}
                     </div>
                 </div>
             </div>

@@ -14,39 +14,41 @@ const Navbar = () => {
   const session = useSession()
   console.log(session.status);
   const navLinks = [
-    {
-      title: "Home",
-      path: "/",
-    },
-    {
-      title: "Projects",
-      path: "/projects",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
-    },
-    {
-      title: "About Me",
-      path: "/about",
-    },
-    {
-      title: "All Blog",
-      path: "/blogs",
-    },
-    // { title: "Dashboard", path: "/dashboard" },
-    // { title: "Login", path: "/login" },
+      {
+        title: "Home",
+        path: "/",
+      },
+      {
+        title: "Projects",
+        path: "/projects",
+      },
+      {
+        title: "Contact",
+        path: "/contact",
+      },
+      {
+        title: "About Me",
+        path: "/about",
+      },
+      {
+        title: "All Blog",
+        path: "/blogs",
+      },
+      // { title: "Dashboard", path: "/dashboard" },
+      // { title: "Login", path: "/login" },
 
-    ...(session.status === "authenticated"
-      ? [{ title: "Resume", path: "/resume" }]
-      : []),
+      ...(session.status === "authenticated"
+        ? [{ title: "Resume", path: "/resume" }]
+        : []),
 
-    session.status === "authenticated"
-      ? { title: "Dashboard", path: "/dashboard" }
-      : { title: "Login", path: "/login" },
+      session.status === "authenticated"
+        ? { title: "Dashboard", path: "/dashboard" }
+        : { title: "Login", path: "/login" },
 
 
-  ];
+    ];
+
+
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">

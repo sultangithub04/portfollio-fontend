@@ -1,6 +1,10 @@
 import React from "react";
-
-const ProjectTag = ({ name, onClick, isSelected }) => {
+type ProjectTagProps = {
+  name: string;
+  onClick: (name: string) => void; // ফাংশন, যেটা string নেয়
+  isSelected: boolean; // true/false
+};
+const ProjectTag = ({ name, onClick, isSelected }:ProjectTagProps) => {
   const buttonStyles = isSelected
     ? "text-white border-primary-500"
     : "text-[#ADB7BE] border-slate-600 hover:border-white";

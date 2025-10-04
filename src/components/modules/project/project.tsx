@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ProjectCard from "@/components/shared/ProjectCard";
-const Projects = ({dataProject}) => {
+const Projects = ({dataProject}:any) => {
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -18,13 +19,14 @@ const Projects = ({dataProject}) => {
         My Projects
       </h2>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {dataProject.map((project, index) => (
+        {dataProject.map((project: { id: React.Key | null | undefined; title: string; description: string; thumbnail: string; repoUrl: string; projectUrl: string; }, index: React.Key | null | undefined) => (
           <motion.li
             key={index}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3 }}
+            // transition={{ duration: 0.3, delay: index * 0.4 }}
           >
             <ProjectCard
               key={project.id}
