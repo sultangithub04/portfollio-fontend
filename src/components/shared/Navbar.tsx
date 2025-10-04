@@ -27,15 +27,19 @@ const Navbar = () => {
       path: "/contact",
     },
     {
-      title: "About",
+      title: "About Me",
       path: "/about",
     },
     {
-      title: "Blog",
+      title: "All Blog",
       path: "/blogs",
     },
     // { title: "Dashboard", path: "/dashboard" },
     // { title: "Login", path: "/login" },
+
+    ...(session.status === "authenticated"
+      ? [{ title: "Resume", path: "/resume" }]
+      : []),
 
     session.status === "authenticated"
       ? { title: "Dashboard", path: "/dashboard" }

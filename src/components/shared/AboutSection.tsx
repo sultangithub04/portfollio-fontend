@@ -36,7 +36,7 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul className="list-disc pl-2">
-        <li>M.Sc, B.Sc (Honor's) in Physics</li>
+        <li>M.Sc, B.Sc (Honors) in Physics</li>
         <li>University of Rajshahi, Bangladesh</li>
       </ul>
     ),
@@ -60,7 +60,7 @@ const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
-  const handleTabChange = (id) => {
+  const handleTabChange = (id: React.SetStateAction<string>) => {
     startTransition(() => {
       setTab(id);
     });
@@ -83,8 +83,8 @@ const AboutSection = () => {
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
-              {" "}
-              Skills{" "}
+              {""}
+              Skills{""}
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("education")}
@@ -97,8 +97,8 @@ const AboutSection = () => {
               selectTab={() => handleTabChange("certifications")}
               active={tab === "certifications"}
             >
-              {" "}
-              Certifications{" "}
+              {""}
+              Certifications{""}
             </TabButton>
           </div>
           <div className="mt-8">

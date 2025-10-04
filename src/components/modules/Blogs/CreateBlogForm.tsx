@@ -33,6 +33,7 @@ export default function CreateBlogForm() {
         <label className="block text-sm font-medium mb-1" htmlFor="content">
           Content
         </label>
+     
         <textarea
           id="content"
           name="content"
@@ -40,6 +41,7 @@ export default function CreateBlogForm() {
           className="w-full rounded-md border px-3 py-2 focus:ring focus:ring-blue-200"
         />
       </div>
+
 
       {/* Thumbnail */}
       <div>
@@ -106,3 +108,4 @@ export default function CreateBlogForm() {
     </Form>
   );
 }
+

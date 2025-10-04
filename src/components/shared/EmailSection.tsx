@@ -40,12 +40,9 @@ const EmailSection = () => {
   return (
     <section
       id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
-    >
+      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      {/* <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div> */}
       <div className="z-10">
-      
         <h5 className="text-xl font-bold text-white my-2">
           Let&apos;s Connect
         </h5>
@@ -55,8 +52,8 @@ const EmailSection = () => {
           open. Whether you have a question or just want to say hi, I&apos;ll
           try my best to get back to you!
         </p>
-          {/* Contact Info */}
-          <div className="flex-1 p-6 rounded-lg shadow-md">
+        {/* Contact Info */}
+        <div className="flex-1 p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold text-white mb-4">Location & Contact</h3>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
@@ -77,11 +74,11 @@ const EmailSection = () => {
             </div>
           </div>
         </div>
-       
+
       </div>
       <div>
         {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
+          <p className="text-purple-500 text-sm mt-2">
             Email sent successfully!
           </p>
         ) : (

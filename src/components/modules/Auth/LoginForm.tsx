@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from "react";
@@ -14,15 +15,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
-// import { login } from "@/actions/auth";
-import { toast } from "sonner";
-import { login } from "@/action/auth";
-
-// type LoginFormValues = {
-//   email: string;
-//   password: string;
-// };
+import {signIn} from "next-auth/react";
+import {toast} from "sonner";
 
 export default function LoginForm() {
   const form = useForm<FieldValues>({
@@ -33,23 +27,29 @@ export default function LoginForm() {
   });
 
   const onSubmit = async (values: FieldValues) => {
+
     try {
-      // const res = await login(values);
-      // if (res?.id) {
-      //   toast.success("User Logged in Successfully");
-      // } else {
-      //   toast.error("User Login Failed");
-      // }
-      signIn("credentials",{
-        ...values, callbackUrl:"/dashboard"
-      })
-    } catch (err) {
-      console.error(err);
+      const result = await signIn("credentials", {
+        ...values,
+        redirect: false,
+      });
+
+      if (result?.ok) {
+        toast.success("User Logged in Successfully");
+        window.location.href = "/dashboard";
+      } else {
+        toast.error(result?.error || "User Login Failed");
+      }
+    } catch (err: any) {
+      console.error("Login error:", err);
+      toast.error(err?.message || "Something went wrong!");
     }
   };
 
   const handleSocialLogin = (provider: "google" | "github") => {
-    console.log(`Login with ${provider}`);
+    signIn(provider, {
+      callbackUrl: "/dashboard?login=success",
+    })
   };
 
   return (
@@ -116,7 +116,7 @@ export default function LoginForm() {
           <Button
             variant="outline"
             className="flex items-center justify-center gap-2"
-            onClick={() => handleSocialLogin("github")}
+          // onClick={() => handleSocialLogin("github")}
           >
             {/* GitHub */}
             <Image
@@ -132,11 +132,13 @@ export default function LoginForm() {
           <Button
             variant="outline"
             className="flex items-center justify-center gap-2"
-            onClick={() =>
-              signIn("google", {
-                callbackUrl: "/dashboard",
-              })
-            }
+            // onClick={() =>
+            //   signIn("google", {
+            //     callbackUrl: "/dashboard",
+
+            //   })
+            // }
+            onClick={() => handleSocialLogin("google")}
           >
             {/* Google */}
             <Image

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from "react";
@@ -13,7 +14,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-// import { register } from "@/actions/auth";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { register } from "@/action/auth";
@@ -38,12 +38,14 @@ export default function RegisterForm() {
   const onSubmit = async (values: FieldValues) => {
     try {
       const res = await register(values);
-      if (res?.id) {
+      if (res?.data?.id) {
         toast.success("User Registered Successfully");
         router.push("/login");
       }
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      toast.error(err.message || "Something went wrong!");
+      console.error("Registration error:", err);
+
     }
   };
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AuthProviders from "../../Providers/AuthProviders";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Welcome to Sultan Profile',
   description: 'Solution for web development',
+  icons:{
+    icon:"/icons8-favicon.gif"
+  }
 };
 
 
@@ -31,6 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProviders>
+           <Toaster position="top-center" richColors />
           {children}
         </AuthProviders>
       </body>

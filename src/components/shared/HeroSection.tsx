@@ -4,14 +4,14 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 const HeroSection = () => {
-  const skills = {
-    Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS", "React.js", "Next.js"],
-    Backend: ["Node.js", "Express.js", "Prisma", "GraphQL", "Docker"],
-    Databases: ["MongoDB", "Mongoose", "SQL", "PostgreSQL"],
-    Tools: ["Firebase", "JWT Authentication", "Axios", "Redux", "AWS"],
-  };
+  // const skills = {
+  //   Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS", "React.js", "Next.js"],
+  //   Backend: ["Node.js", "Express.js", "Prisma", "GraphQL", "Docker"],
+  //   Databases: ["MongoDB", "Mongoose", "SQL", "PostgreSQL"],
+  //   Tools: ["Firebase", "JWT Authentication", "Axios", "Redux", "AWS"],
+  // };
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -50,7 +50,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            A Full-Stack Web Developer. Welcome to my digital playground! I'm Sultan, a passionate Full-Stack Web Developer dedicated to turning your ideas into captivating online experiences. Skills that set me apart include frontend and backend development: HTML, CSS, JavaScript, TypeScript, TailwindCSS, Firebase, JWT, Axios, React.js, Next.js, Node.js, Express.js, Prisma, Docker, AWS, GraphQL, Redux, MongoDB, Mongoose, SQL, PostgreSQL, and many more.
+            A Full-Stack Web Developer. Welcome to my digital playground! I am Sultan, a passionate Full-Stack Web Developer dedicated to turning your ideas into captivating online experiences. Skills that set me apart include frontend and backend development: HTML, CSS, JavaScript, TypeScript, TailwindCSS, Firebase, JWT, Axios, React.js, Next.js, Node.js, Express.js, Prisma, Docker, AWS, GraphQL, Redux, MongoDB, Mongoose, SQL, PostgreSQL, and many more.
           </p>
           <div>
             <Link
